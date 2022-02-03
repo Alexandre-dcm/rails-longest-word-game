@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown</title>
+</head>
+<body>
+  <div class="letters">
+    <% @letters.each do |letter| %>
+      <div class="letter">
+        <p><%= letter %></p>
+      </div>
+    <% end %>
+  </div>
+  <form action="/score" id="form" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+    <input type="text" placeholder="Type something here" id="typebar" name="typebar">
+    <input type="submit" id="submit-btn">
+  </form>
+
+
+</body>
+</html>
